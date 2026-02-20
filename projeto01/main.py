@@ -12,8 +12,18 @@ client = OpenAI(api_key=openai)
 resposta = client.chat.completions.create(
     model="gpt-4o-mini",
     messages=[
-        {"role": "system", "content": "Você é um assistente técnico."},
-        {"role": "user", "content": "Explique IA Generativa para um diretor técnico, focando em riscos e arquitetura. Resultado em 3 parágrafos."}
+        {
+            "role": "system",
+            "content": "Você é um assistente técnico."
+        },
+        {
+            "role": "user",
+            "content": (
+                "Explique IA Generativa para um diretor técnico, "
+                "focando em riscos e arquitetura. "
+                "Resultado em 3 parágrafos."
+            )
+        }
     ],
     temperature=0.7
 )
