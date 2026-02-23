@@ -1,31 +1,24 @@
 import os
 from dotenv import load_dotenv
-from openai import OpenAI
+from google import genai
+from google.genai import types
 
+# Carrega as variáveis de ambiente
 load_dotenv()
-openai = os.getenv("OPENAI_API_KEY")
+gemini_api_key = os.getenv("GEMINI_API_KEY")
 
-# Inicializa o cliente OpenAI com a chave de API
-client = OpenAI(api_key=openai)
+# Inicializa o cliente Gemini com a chave de API
+client = genai.Client(api_key=gemini_api_key)
 
 # Teste simples
-resposta = client.chat.completions.create(
-    model="gpt-4o-mini",
-    messages=[
-        {
-            "role": "system",
-            "content": "Você é um assistente técnico."
-        },
-        {
-            "role": "user",
-            "content": (
-                "Explique IA Generativa para um diretor técnico, "
-                "focando em riscos e arquitetura. "
-                "Resultado em 3 parágrafos."
-            )
-        }
-    ],
-    temperature=0.7
+resposta = client.models.generate_content(
+    model="gemini-2.5-flash", # Equivalente ao gpt-4o-mini (rápido, barato e eficiente)
+    contents="Explique IA Generativa para um diretor técnico, focando em riscos e arquitetura. Resultado em 3 parágrafos.",
+    config=types.GenerateContentConfig(
+        system_instruction="Você é um assistente técnico.",
+        temperature=0.7,
+    )
 )
 
-print(resposta.choices[0].message.content)
+# Imprime o resultado
+print(resposta.text)
