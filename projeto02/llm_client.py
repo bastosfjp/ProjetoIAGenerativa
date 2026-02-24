@@ -1,22 +1,20 @@
-# Responsável por conectar com a API.
-
-from openai import OpenAI
 import os
 from dotenv import load_dotenv
+from google import genai
+from google.genai import types
 
 load_dotenv()
+gemini_api_key = os.getenv("GEMINI_API_KEY")
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
-groq_api_key = os.getenv("GROQ_API_KEY")
-
-client = OpenAI(api_key=groq_api_key, base_url="https://api.groq.com/openai/v1")
-
+client = genai.Client(api_key=gemini_api_key)
 
 def gerar_resposta(prompt, temperature=0.2):
-    resposta = client.responses.create(
-        model="openai/gpt-oss-20b",
-        temperature=temperature,
-        input=prompt
+    resposta = client.models.generate_content(
+        # GARANTA QUE O MODELO ESTÁ EXATAMENTE ASSIM:
+        model="gemini-2.5-flash", 
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            temperature=temperature,
+        )
     )
-
-    return resposta.output_text
+    return resposta.text

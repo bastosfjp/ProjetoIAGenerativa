@@ -1,0 +1,15 @@
+# Ignora o arquivo com a sua chave de API (MUITO IMPORTANTE)
+.env
+
+# Ignora pastas de ambiente virtual Python (caso você tenha criado)
+venv/
+env/
+.venv/
+
+# Ignora arquivos de cache que o Python cria sozinho
+__pycache__/
+*.pyc
+
+# Ignora arquivos de sistema (Windows/Mac)
+.DS_Store
+Thumbs.db
