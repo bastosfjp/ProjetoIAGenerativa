@@ -52,6 +52,27 @@ Disciplina eletiva focada em conceitos e aplicações práticas de Inteligência
 
 ---
 
+### Aula 03 - RAG: Recuperacao e Protecao
+
+**Objetivo**: Evoluir o sistema com RAG e protecao contra prompt injection
+
+**Conteudo**:
+- Geracao de embeddings e armazenamento em memoria
+- Busca por similaridade para recuperar contexto
+- Protecao contra prompt injection
+- Tratamento seguro de falhas
+
+**Projeto Pratico** (`projeto03/`):
+- RAG com base em conhecimento.txt
+- Recuperacao de contexto por similaridade
+- Protecao contra tentativas de prompt injection
+
+**Desafio**: [Ver tarefa.md](projeto03/tarefa.md)
+
+📊 [Acessar Slides](https://eletiva-aula03.lovable.app/)
+
+---
+
 ## 📂 Estrutura do Repositório
 
 ```
@@ -66,6 +87,17 @@ Disciplina eletiva focada em conceitos e aplicações práticas de Inteligência
 │   ├── validator.py    # Validação e testes
 │   ├── requirements.txt # Dependências
 │   └── tarefa.md       # Desafio da aula
+│
+├── projeto03/          # Aula 03 - RAG
+│   ├── main.py         # Script principal
+│   ├── llm_client.py   # Cliente LLM
+│   ├── prompt.py       # Prompt e instrucoes
+│   ├── retriever.py    # Recuperacao por similaridade
+│   ├── validator.py    # Validacao de respostas
+│   ├── requirements.txt # Dependencias
+│   ├── tarefa.md       # Desafio da aula
+│   └── conhecimento/   # Base de conhecimento
+│       └── conhecimento.txt
 │
 └── README.md          # Este arquivo
 ```
@@ -95,4 +127,3 @@ Disciplina eletiva focada em conceitos e aplicações práticas de Inteligência
 - Cada aula constrói sobre conceitos da aula anterior
 - Projeto 02 foca em padrões de produção não abordados no Projeto 01
 - Todos os scripts requerem autenticação OpenAI válida
-
