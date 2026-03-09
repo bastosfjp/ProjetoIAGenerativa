@@ -8,7 +8,7 @@ O nome foi escolhido porque resume o propósito do assistente: **conversar com r
 
 ---
 
-Chatbot conversacional com memória persistente, persona definida e funções utilitárias integradas, usando a API **Groq** com o modelo `llama3-70b-8192`.
+Chatbot conversacional com memória persistente, persona definida e funções utilitárias integradas, usando a API **Groq** com o modelo `llama-3.3-70b-versatile`.
 
 ---
 
